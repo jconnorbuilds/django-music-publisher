@@ -6,6 +6,7 @@ import csv
 import os
 import dj_database_url
 from decimal import Decimal
+from django.core.management.utils import get_random_secret_key
 
 SOFTWARE = "DMP.MATIJAKOLARIC.COM"
 SOFTWARE_VERSION = "22.1 EXOFILE (OPEN SOURCE)"
@@ -13,7 +14,7 @@ SOFTWARE_VERSION = "22.1 EXOFILE (OPEN SOURCE)"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", None)
+SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", False)
@@ -125,13 +126,13 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = not DEBUG
 
 # The name of the publisher. Use no comma in the name!
-PUBLISHER_NAME = os.getenv("PUBLISHER", "DMP - FREE MUSIC CATALOGUE SOFTWARE")
+PUBLISHER_NAME = os.getenv("PUBLISHER", "Black Cat White Cat Music")
 
 # CWR Delivery code, issued by collecting societies
 PUBLISHER_CODE = os.getenv("PUBLISHER_CODE", "")
 
 # IPI Name # is required, issued by collecting societies
-PUBLISHER_IPI_NAME = os.getenv("PUBLISHER_IPI_NAME", "")
+PUBLISHER_IPI_NAME = os.getenv("PUBLISHER_IPI_NAME", "01096377226")
 # IPI Base # is rarely used, issued by collecting societies
 PUBLISHER_IPI_BASE = os.getenv("PUBLISHER_IPI_BASE", None)
 
@@ -139,7 +140,7 @@ PUBLISHER_IPI_BASE = os.getenv("PUBLISHER_IPI_BASE", None)
 # Numerical value as string without the leading zero:
 # '52' for PRS, '44' for MCPS, '10' for ASCAP, '34' for HFA. etc.
 # see  music_publisher/societies.csv
-PUBLISHER_SOCIETY_PR = os.getenv("PUBLISHER_SOCIETY_PR", None)
+PUBLISHER_SOCIETY_PR = os.getenv("PUBLISHER_SOCIETY_PR", "38")
 PUBLISHER_SOCIETY_MR = os.getenv("PUBLISHER_SOCIETY_MR", None)
 PUBLISHER_SOCIETY_SR = os.getenv("PUBLISHER_SOCIETY_SR", None)
 
