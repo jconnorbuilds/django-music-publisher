@@ -20,7 +20,6 @@ from django.conf import settings
 urlpatterns = [
     path("", include("music_publisher.urls")),
     path("", admin.site.urls),
-    path('royalty_calculation/', RoyaltyCalculationView.as_view(), name='royalty_calculation')
 ]
 
 admin.site.site_header = settings.PUBLISHER_NAME
